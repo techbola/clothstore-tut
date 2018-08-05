@@ -9,7 +9,7 @@
 
         @include('front.includes.nav')
 
-        @include('front.includes.slider')
+        @yield('slider')
 
         @yield('content')
 
