@@ -1,0 +1,9 @@
+.table tbody tr td.user-avatar img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.be-top-header .be-navbar-header .navbar-brand {
+    background-image: none;
+}
