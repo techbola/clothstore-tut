@@ -66,7 +66,7 @@
                 <li data-transition="fade">
 
                     <!-- MAIN IMAGE -->
-                    <img src="{{ asset('main/images/bg/bg-1.jpg') }}"  alt=""  width="1920" height="600">
+                    <img src="{{ asset('main/images/bg/slider.jpg') }}"  alt=""  width="1920" height="600">
 
                     <!-- LAYER NR. 1 -->
                     <div class="tp-caption slider-title tp-resizeme"

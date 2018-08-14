@@ -2,7 +2,7 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 margin-b-30">
+            <div class="col-md-4 margin-b-30">
                 <h3>About store</h3>
                 <p>
                     Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus
@@ -10,36 +10,18 @@
                 <ul class="list-inline social-footer">
                     <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Facebook"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Youtube"><i class="fa fa-youtube-play"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Rss feeds"><i class="fa fa-rss"></i></a></li>
                 </ul>
             </div>
-            <div class="col-md-3">
-                <h3>Latest Tweets </h3>
-                <div class="tweet"></div>
-            </div>
-            <div class="col-md-3 margin-b-30">
-                <h3>Product Tags </h3>
+            <div class="col-md-4 margin-b-30">
+                <h3>Quick Links </h3>
                 <div class="tags clearfix">
-                    <a href="#">Fashion</a>
-                    <a href="#">Shoes</a>
-                    <a href="#">bootstrap</a>
-                    <a href="#">Kids</a>
-                    <a href="#">Slippers</a>
-                    <a href="#">inner-wears</a>
-                    <a href="#">Women</a>
-                    <a href="#">Men</a>
-                    <a href="#">T-shirts</a>
-                    <a href="#">Jeans</a>
-                    <a href="#">Socks</a>
-                    <a href="#">Sports</a>
-                    <a href="#">Clothes</a>
-                    <a href="#">Watches</a>
+                    <a href="#">Home</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
                 </div>
             </div>
-            <div class="col-md-3 margin-b-30">
+            <div class="col-md-4 margin-b-30">
                 <h3>Help Center</h3>
                 <div class="media">
                     <div class="media-left">
@@ -71,17 +53,12 @@
 </footer>
 <div class="footer-bottom">
     <div class="container text-center">
-        <h3><a href="index.html"><img src="images/logo-white.png" alt=""></a></h3>
-        <ul class="list-inline">
-            <li><a href="#">Site Map</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Returns</a></li>
-            <li><a href="#">Privacy & policy</a></li>
-        </ul>
-        <img src="images/payment.png" alt="" class="img-responsive payment">
-        <span class="copyright">&copy; Copyright 2015, Assan.</span>
+        <h3>
+            <a href="{{ route('index') }}">
+                <img src="" alt="Logo Here">
+            </a>
+        </h3>
+        <span class="copyright">&copy; Copyright 2018.</span>
     </div>
 </div>
 <!--footer end-->

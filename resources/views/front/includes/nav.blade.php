@@ -62,14 +62,14 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('index') }}">Home</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{{ route('store') }}">Shop</a></li>
+                    <li><a href="{{ route('blog') }}">Blog</a></li>
+                    <li><a href="{{ route('contact') }}">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true">
-                            <i class="pe-7s-cart"></i> <span class="badge">5</span></a>
+                        <a href="{{ route('cart') }}" class="dropdown-toggle">
+                            <i class="pe-7s-cart"></i> <span class="badge">{{ Cart::content()->count() }}</span></a>
                     </li>
                     <li><a href="javascript:void(0)" class="search-toggle"><i class="fa fa-search"></i></a></li>
                 </ul>

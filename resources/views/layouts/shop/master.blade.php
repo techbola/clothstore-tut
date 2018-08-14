@@ -5,48 +5,55 @@
     <!--breadcrumb start-->
     <div class="breadcrumb-wrapper">
         <div class="container">
-            <h1>blog</h1>
+            <h1>Shop</h1>
         </div>
     </div>
     <!--end breadcrumb-->
 
     <div class="space-60"></div>
     <div class="container">
-        <div class="blog-grid row clearfix">
-
-            @foreach($posts as $post)
-
-                <div class="blog-item col-sm-4">
-                    <a href="{{ route('singlePost', $post->slug) }}">
-                        <img src="{{asset($post->featured)}}" class="img-responsive" alt="">
-                    </a>
-                    <div class="blog-desc">
-                        <h4 class="title"><a href="{{ route('singlePost', $post->slug) }}">{{ $post->title }}</a></h4>
-                        <p>
-                            {{ str_limit(strip_tags($post->content), 150) }}
-                        </p>
-                        <a href="{{ route('singlePost', $post->slug) }}" class="btn btn-skin">Continue...</a>
-                    </div><!--blog desc-->
-                </div><!--blog item-->
-
-            @endforeach
-
-        </div><!--grid blog-->
-
         <div class="row">
-            <div class="col-sm-12">
-                {{ $posts->links() }}
-            </div>
-        </div>
+            <div class="col-md-8">
 
+                @yield('productContent')
+
+            </div>
+
+            <div class="col-md-3 col-md-offset-1">
+
+                <div class="sidebar-widget">
+                    <h3>Most Popular </h3>
+
+                    @foreach($popularProducts as $popularProduct)
+
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="{{ route('productDetails', $popularProduct->slug) }}">
+                                    <img class="media-object" src="{{ asset($popularProduct->featured) }}" alt="" width="70">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href='{{ route('productDetails', $popularProduct->slug) }}'>{{ $popularProduct->title }}</a></h4>
+                                <span class="price">
+                                    ${{ $popularProduct->price }}
+                                </span>
+                            </div>
+                        </div><!--media-->
+
+                    @endforeach
+
+                </div><!--sidebar-widget end-->
+
+            </div><!--sidebar col-->
+        </div>
     </div>
     <div class="space-60"></div>
+
     <div class="newsletter">
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
                     <h3>Subscribe to newsletter</h3>
-                    <p>Lorem ipsum get latest update of products sit amet.</p>
                 </div>
                 <div class="col-md-7">
                     <form role="form" method="post" action="#" class="subscribe-form  assan-newsletter">

@@ -118,6 +118,7 @@ class PostController extends Controller
 
         $post->title = $request->title;
         $post->content = $request->description;
+        $post->slug = str_slug($request->title);
 
         $post->save();
 
@@ -135,6 +136,10 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
+        if(file_exists($post->featured)){
+            unlink($post->featured);
+        }
 
         $post->delete();
 

@@ -1,0 +1,7 @@
+#cart_total_checkout .table-bordered tbody > tr > td{
+    width: 30% !important;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 13px;
+    text-transform: capitalize;
+}

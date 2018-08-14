@@ -57,7 +57,8 @@ class ProductsController extends Controller
             'description' => $request->description,
             'price' => $request->price,
             'featured' => 'uploads/products/' . $featured_new_name,
-            'slug' => str_slug($request->title)
+            'slug' => str_slug($request->title),
+            'views' => 0
         ]);
 
         Session::flash('success', 'Product created');
@@ -120,6 +121,7 @@ class ProductsController extends Controller
         }
 
         $product->title = $request->title;
+        $product->slug = str_slug($request->title);
         $product->description = $request->description;
         $product->price = $request->price;
 
@@ -139,6 +141,10 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
+
+        if(file_exists($product->featured)){
+            unlink($product->featured);
+        }
 
         $product->delete();
 

@@ -5,40 +5,42 @@
     <!--breadcrumb start-->
     <div class="breadcrumb-wrapper">
         <div class="container">
-            <h1>blog</h1>
+            <h1>{{ $post->title }}</h1>
         </div>
     </div>
     <!--end breadcrumb-->
 
     <div class="space-60"></div>
     <div class="container">
-        <div class="blog-grid row clearfix">
-
-            @foreach($posts as $post)
-
-                <div class="blog-item col-sm-4">
-                    <a href="{{ route('singlePost', $post->slug) }}">
-                        <img src="{{asset($post->featured)}}" class="img-responsive" alt="">
-                    </a>
-                    <div class="blog-desc">
-                        <h4 class="title"><a href="{{ route('singlePost', $post->slug) }}">{{ $post->title }}</a></h4>
-                        <p>
-                            {{ str_limit(strip_tags($post->content), 150) }}
-                        </p>
-                        <a href="{{ route('singlePost', $post->slug) }}" class="btn btn-skin">Continue...</a>
-                    </div><!--blog desc-->
-                </div><!--blog item-->
-
-            @endforeach
-
-        </div><!--grid blog-->
-
         <div class="row">
-            <div class="col-sm-12">
-                {{ $posts->links() }}
-            </div>
-        </div>
+            <div class="blog-item col-sm-10 col-sm-offset-1">
+                <a href="#">
+                    <img src="{{ asset($post->featured) }}" class="img-responsive" alt="">
+                </a>
+                <div class="blog-desc">
+                    <h4 class="title"><a href="#">{{ $post->title }}</a></h4>
+                    <p>
+                        {!! $post->content !!}
+                    </p>
 
+                </div><!--blog desc-->
+
+                {{--<div class="comments">--}}
+                    {{--<h3><i class="pe-7s-comment"></i> 1 Comment</h3>--}}
+                    {{--<hr>--}}
+                    {{--<div class="media">--}}
+                        {{--<div class="media-body">--}}
+                            {{--<h4 class="media-heading">John Doe <a href="#">Reply</a></h4>--}}
+                            {{--<p>--}}
+                                {{--Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,--}}
+                                {{--when an unknown printer took a galley of type and scrambled it to make a type specimen book--}}
+                            {{--</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+            </div><!--blog item-->
+        </div>
     </div>
     <div class="space-60"></div>
     <div class="newsletter">
@@ -46,7 +48,6 @@
             <div class="row">
                 <div class="col-md-5">
                     <h3>Subscribe to newsletter</h3>
-                    <p>Lorem ipsum get latest update of products sit amet.</p>
                 </div>
                 <div class="col-md-7">
                     <form role="form" method="post" action="#" class="subscribe-form  assan-newsletter">

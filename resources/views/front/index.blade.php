@@ -6,42 +6,6 @@
 
 @section('content')
 
-  <div class="blocks-main">
-      <div class="container">
-          <div class="row">
-              <div class="col-sm-4">
-                  <div class="blocks-col">
-                      <img src="{{ asset('main/images/bg/bg-2.jpg') }}" alt="" class="img-responsive">
-                      <div class="block-overlay">
-                          <h4>Menswear</h4>
-                          <p>Summer sale upto 50% off</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-4">
-                  <div class="blocks-col">
-                      <img src="{{ asset('main/images/bg/bg-3.jpg') }}" alt="" class="img-responsive">
-                      <div class="block-overlay">
-                          <h4>Accessories</h4>
-                          <p>Lorem ipsum dolor sit  </p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-4">
-                  <div class="blocks-col">
-                      <img src="{{ asset('main/images/bg/bg-1.jpg') }}" alt="" class="img-responsive">
-                      <div class="block-overlay">
-                          <h4>Womens collection</h4>
-                          <p>Winter sale upto 40% off  </p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div><!--block main-->
-
-  <div class="space-60"></div>
-
   <!--new arrivals-->
   <section class="new-arrivals">
       <div class="container">
@@ -51,60 +15,22 @@
           <div class="row">
               <div id="owl-slider" class="col-md-12 owl-carousel owl-theme">
 
-                  <div class="item">
-                      <div class="item_holder">
-                          <a href="#"><img src="{{ asset('main/images/women/1.jpg') }}" alt="" class="img-responsive"></a>
-                          <div class="title">
-                              <h5>Sky-Blue <br>Short Skirt</h5>
-                              <span class="price">$29.99</span>
-                          </div>
-                      </div><!--item holder-->
-                  </div> <!--item loop-->
-                  <div class="item">
-                      <div class="item_holder">
-                          <a href="#"><img src="{{ asset('main/images/men/1.jpg') }}" alt="" class="img-responsive"></a>
-                          <div class="title">
-                              <h5>Dark-Blue <br>Men's t-shirt</h5>
-                              <span class="price">$19.99 <del>$25.99</del></span>
-                          </div>
-                      </div><!--item holder-->
-                  </div> <!--item loop-->
-                  <div class="item">
-                      <div class="item_holder">
-                          <a href="#"><img src="{{ asset('main/images/women/2.jpg') }}" alt="" class="img-responsive"></a>
-                          <div class="title">
-                              <h5>Black <br>Short Skirt</h5>
-                              <span class="price">$29.99</span>
-                          </div>
-                      </div><!--item holder-->
-                  </div> <!--item loop-->
-                  <div class="item">
-                      <div class="item_holder">
-                          <a href="#"><img src="{{ asset('main/images/men/3.jpg') }}" alt="" class="img-responsive"></a>
-                          <div class="title">
-                              <h5>Black <br>analog watch</h5>
-                              <span class="price">$45.99</span>
-                          </div>
-                      </div><!--item holder-->
-                  </div> <!--item loop-->
-                  <div class="item">
-                      <div class="item_holder">
-                          <a href="#"><img src="{{ asset('main/images/men/4.jpg') }}" alt="" class="img-responsive"></a>
-                          <div class="title">
-                              <h5>Black & blue <br>Backpack</h5>
-                              <span class="price">$45.99</span>
-                          </div>
-                      </div><!--item holder-->
-                  </div> <!--item loop-->
-                  <div class="item">
-                      <div class="item_holder">
-                          <a href="#"><img src="{{ asset('main/images/men/5.jpg') }}" alt="" class="img-responsive"></a>
-                          <div class="title">
-                              <h5>Black & blue <br>Laptop bag</h5>
-                              <span class="price">$45.99</span>
-                          </div>
-                      </div><!--item holder-->
-                  </div> <!--item loop-->
+                  @foreach($newProducts as $newProduct)
+
+                      <div class="item">
+                          <div class="item_holder">
+                              <a href="{{ route('productDetails', $newProduct->slug) }}">
+                                  <img src="{{ asset($newProduct->featured) }}" alt="" class="img-responsive">
+                              </a>
+                              <div class="title">
+                                  <h5>{{ $newProduct->title }}</h5>
+                                  <span class="price">${{ $newProduct->price }}</span>
+                              </div>
+                          </div><!--item holder-->
+                      </div> <!--item loop-->
+
+                  @endforeach
+
               </div>
           </div>
           <!--owl end-->
@@ -113,102 +39,26 @@
   <!--end new arrivals-->
   <div class='space-60'></div>
 
-  <!--parallax section start-->
-  <section class="parallax">
-      <div class="container">
-          <div class="row">
-              <div class="col-sm-10 col-sm-offset-1 text-center">
-                  <h1><span>Upto 50% off on men's collection</span></h1>
-                  <a href='#' class="btn btn-skin btn-lg">Shop Now</a>
-              </div>
-          </div>
-      </div>
-  </section>
-  <!--parallax section end-->
-  <div class='space-60'></div>
-
   <!--popular products-->
   <section class="featured-products">
       <div class="container">
-          <h2 class="section-heading">Popular products</h2>
+          <h2 class="section-heading">All products</h2>
           <div class="row">
-              <div class="col-sm-6 col-md-3 ">
-                  <div class="item_holder">
-                      <a href="#"><img src="{{ asset('main/images/women/1.jpg') }}" alt="" class="img-responsive"></a>
-                      <div class="title">
-                          <h5>Sky-Blue <br>Short Skirt</h5>
-                          <span class="price">$29.99</span>
-                      </div>
-                  </div><!--item holder-->
-              </div><!--col end-->
-              <div class="col-sm-6 col-md-3 ">
-                  <div class="item_holder out-of-stock">
-                      <span class="out-stock-label">Out of stock</span>
-                      <a href="#"><img src="{{ asset('main/images/men/1.jpg') }}" alt="" class="img-responsive"></a>
-                      <div class="title">
-                          <h5>Sky-Blue <br>Short Skirt</h5>
-                          <span class="price">$29.99</span>
-                      </div>
-                  </div><!--item holder-->
-              </div><!--col end-->
-              <div class="col-sm-6 col-md-3 ">
-                  <div class="item_holder">
-                      <a href="#"><img src="{{ asset('main/images/men/2.jpg') }}" alt="" class="img-responsive"></a>
-                      <div class="title">
-                          <h5>Sky-Blue <br>Short Skirt</h5>
-                          <span class="price">$29.99</span>
-                      </div>
-                  </div><!--item holder-->
-              </div><!--col end-->
-              <div class="col-sm-6 col-md-3 ">
-                  <div class="item_holder">
-                      <a href="#"><img src="{{ asset('main/images/women/2.jpg') }}" alt="" class="img-responsive"></a>
-                      <div class="title">
-                          <h5>Sky-Blue <br>Short Skirt</h5>
-                          <span class="price">$29.99</span>
-                      </div>
-                  </div><!--item holder-->
-              </div><!--col end-->
-          </div><!--row-->
 
-          <div class="row">
-              <div class="col-sm-6 col-md-3 ">
-                  <div class="item_holder">
-                      <a href="#"><img src="{{ asset('main/images/women/1.jpg') }}" alt="" class="img-responsive"></a>
-                      <div class="title">
-                          <h5>Sky-Blue <br>Short Skirt</h5>
-                          <span class="price">$29.99</span>
-                      </div>
-                  </div><!--item holder-->
-              </div><!--col end-->
-              <div class="col-sm-6 col-md-3 ">
-                  <div class="item_holder">
-                      <span class="offer-lablel">50% off</span>
-                      <a href="#"><img src="{{ asset('main/images/men/5.jpg') }}" alt="" class="img-responsive"></a>
-                      <div class="title">
-                          <h5>Sky-Blue <br>Short Skirt</h5>
-                          <span class="price">$29.99</span>
-                      </div>
-                  </div><!--item holder-->
-              </div><!--col end-->
-              <div class="col-sm-6 col-md-3 ">
-                  <div class="item_holder">
-                      <a href="#"><img src="{{ asset('main/images/men/7.jpg') }}" alt="" class="img-responsive"></a>
-                      <div class="title">
-                          <h5>Sky-Blue <br>Short Skirt</h5>
-                          <span class="price">$29.99</span>
-                      </div>
-                  </div><!--item holder-->
-              </div><!--col end-->
-              <div class="col-sm-6 col-md-3 ">
-                  <div class="item_holder">
-                      <a href="#"><img src="{{ asset('main/images/men/4.jpg') }}" alt="" class="img-responsive"></a>
-                      <div class="title">
-                          <h5>Sky-Blue <br>Short Skirt</h5>
-                          <span class="price">$29.99</span>
-                      </div>
-                  </div><!--item holder-->
-              </div><!--col end-->
+              @foreach($popularProducts as $popularProduct)
+
+                  <div class="col-sm-6 col-md-3 ">
+                      <div class="item_holder">
+                          <a href="{{ route('productDetails', $popularProduct->slug) }}"><img src="{{ asset($popularProduct->featured) }}" alt="" class="img-responsive"></a>
+                          <div class="title">
+                              <h5>{{ $popularProduct->title }}</h5>
+                              <span class="price">${{ $popularProduct->price }}</span>
+                          </div>
+                      </div><!--item holder-->
+                  </div><!--col end-->
+
+              @endforeach
+
           </div><!--row-->
 
       </div>
@@ -294,29 +144,5 @@
   </div>
   <!--features section end-->
   <div class="space-30"></div>
-
-  <!--partners-->
-  <section class="partners">
-      <div class='container'>
-          <h2 class="section-heading">Our Partners</h2>
-          <div class="row">
-              <div id="owl-partners" class="col-md-12 owl-carousel owl-theme">
-
-                  <div class="item"><img src="{{ asset('main/images/partner.png') }}" alt="parner" class="img-responsive"></div>
-                  <div class="item"><img src="{{ asset('main/images/partner.png') }}" alt="parner" class="img-responsive"></div>
-                  <div class="item"><img src="{{ asset('main/images/partner.png') }}" alt="parner" class="img-responsive"></div>
-                  <div class="item"><img src="{{ asset('main/images/partner.png') }}" alt="parner" class="img-responsive"></div>
-                  <div class="item"><img src="{{ asset('main/images/partner.png') }}" alt="parner" class="img-responsive"></div>
-                  <div class="item"><img src="{{ asset('main/images/partner.png') }}" alt="parner" class="img-responsive"></div>
-                  <div class="item"><img src="{{ asset('main/images/partner.png') }}" alt="parner" class="img-responsive"></div>
-                  <div class="item"><img src="{{ asset('main/images/partner.png') }}" alt="parner" class="img-responsive"></div>
-                  <div class="item"><img src="{{ asset('main/images/partner.png') }}" alt="parner" class="img-responsive"></div>
-                  <div class="item"><img src="{{ asset('main/images/partner.png') }}" alt="parner" class="img-responsive"></div>
-
-              </div>
-          </div>
-      </div>
-  </section>
-  <!--end partners-->
 
 @endsection
