@@ -47,9 +47,11 @@
 
               @foreach($popularProducts as $popularProduct)
 
-                  <div class="col-sm-6 col-md-3 ">
+                  <div class="col-sm-6 col-md-3">
                       <div class="item_holder">
-                          <a href="{{ route('productDetails', $popularProduct->slug) }}"><img src="{{ asset($popularProduct->featured) }}" alt="" class="img-responsive"></a>
+                          <a href="{{ route('productDetails', $popularProduct->slug) }}">
+                              <img src="{{ asset($popularProduct->featured) }}" alt="" class="img-responsive">
+                          </a>
                           <div class="title">
                               <h5>{{ $popularProduct->title }}</h5>
                               <span class="price">${{ $popularProduct->price }}</span>

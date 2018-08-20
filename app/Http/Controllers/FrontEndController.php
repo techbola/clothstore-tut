@@ -12,6 +12,7 @@ class FrontEndController extends Controller
     public function index()
     {
         $newProducts = Product::orderBy('id','desc')->take(12)->get();
+
         $popularProducts = Product::orderBy('views','desc')->take(12)->get();
 
         return view('front.index')->with([
@@ -34,6 +35,9 @@ class FrontEndController extends Controller
     public function productDetails($slug)
     {
         $product = Product::where('slug', $slug)->first();
+
+        $product->views = $product->views + 1;
+        $product->save();
 
         //dd($product);
 
